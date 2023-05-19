@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>Create Photo's form</h2>
+        <%= form_with model: @photo do |f| %>
+          <h4>Photo</h4>
+            <%= f.file_field :photo, accept: "image/*" %>
+          <h4>Title</h4>
+            <%= f.text_field :photo_name %>
+          <h4>Caption</h4>
+            <%= f.text_area :caption %><br />
+          <%= f.submit 'Post', class:"btn btn-info" %>
+        <% end %>
+    </div>
+  </div>
+</div>

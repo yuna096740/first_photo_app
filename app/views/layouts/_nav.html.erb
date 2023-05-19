@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controlls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ml-auto">
+        <% if user_signed_in? %>
+          <li>
+            <%= link_to root_path, class: 'nav-link text-light' do %>
+              <i class="fas fa-home"></i> Home
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_photo_path, class:"nav-link text-light" do %>
+              <i class="fas fa-plus"></i> Create
+            <% end %>
+          </li>
+          <li>
+            <%= link_to about_path, class:"nav-link text-light" do |f| %>
+              <i class="fas fa-link"></i> About
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_user_session_path,method: :delete, class:"nav-link text-light"  do |f| %>
+              <i class="fas fa-sign-out-alt"></i> Log out
+            <% end %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to root_path, class: 'nav-link text-light' do %>
+              <i class="fas fa-home"></i> Home
+            <% end %>
+          </li>
+          <li>
+            <%= link_to about_path, class:"nav-link text-light" do |f| %>
+              <i class="fas fa-link"></i> About
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_user_session_path, class:"nav-link text-light" do |f| %>
+              <i class="fas fa-user"></i> Log in
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_user_registration_path, class:"nav-link text-light"  do |f| %>
+              <i class="fas fa-users"></i> Sign up
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
