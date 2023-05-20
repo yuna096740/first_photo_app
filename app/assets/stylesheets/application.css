@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+.parallax {
+  background-image: url('images/minami.jpg');
+
+}

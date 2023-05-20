@@ -4,7 +4,7 @@
       <%= form_with model: @photo, url: photo_path(@photo.id), method: :patch do |f| %>
         <div class="form-group">
           <%= f.label :photo %>
-          <%= f.file_field :photo, accept: 'image/*' , class:"form-cotrol" %>
+          <%= f.file_field :photo, accept: 'image/*' %>
         </div>
         <div class="form-group">
           <%= f.label :photo_name %>

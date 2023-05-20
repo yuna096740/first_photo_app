@@ -1,15 +1,23 @@
 <div class="container">
   <div class="row">
-    <div class="col">
-      <h2>Create Photo's form</h2>
+    <div class="col-sm-12 col-md-8 col-lg-5 mx-auto my-5">
+      <h4 class="">Create Photo's form</h4>
         <%= form_with model: @photo do |f| %>
-          <h4>Photo</h4>
-            <%= f.file_field :photo, accept: "image/*" %>
-          <h4>Title</h4>
-            <%= f.text_field :photo_name %>
-          <h4>Caption</h4>
-            <%= f.text_area :caption %><br />
-          <%= f.submit 'Post', class:"btn btn-info" %>
+          <div class="form-group">
+            <h4>Photo</h4>
+              <%= f.file_field :photo, accept: "image/*" %>
+          </div>
+          <div class="form-group">
+            <h4>Title</h4>
+              <%= f.text_field :photo_name, class:"form-control" %>
+          </div>
+          <div class="form-group">
+            <h4>Caption</h4>
+              <%= f.text_area :caption, class:"form-control" %><br />
+          </div>
+          <div class="form-group">
+            <%= f.submit 'Post', class:"btn btn-info form-control" %>
+          </div >
         <% end %>
     </div>
   </div>

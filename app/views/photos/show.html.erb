@@ -1,12 +1,12 @@
-<div class="bg-secondary">
+<div class="bg-dark">
   <div class="container text-light">
     <div class="row">
-      <div class="col-sm-12 col-md-10 col-lg-7 mx-auto">
-        <%= image_tag @photo.photo, size:"600x600" %><br>
+      <div class="col-sm-12 col-md-10 col-lg-10 mx-auto my-5">
+        <%= image_tag @photo.photo %><br>
         <%= @photo.photo_name %>
         <%= @photo.caption %>
-        <%= link_to "Edit", edit_photo_path(@photo.id), class:"btn btn-success" %> |
-        <%= link_to "destroy", photo_path(@photo.id), method: :delete, class:"btn btn-danger" %>
+        <%= link_to "Edit", edit_photo_path(@photo.id), class:"btn btn-outline-success mr-2 mt-5" %>
+        <%= link_to "destroy", photo_path(@photo.id), method: :delete, class:"btn btn-outline-danger mt-5" %>
       </div>
     </div>
   </div>

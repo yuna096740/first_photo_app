@@ -1,11 +1,14 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-10 col-md-10 mx-auto my-5">
-      <% @photos.each do |photo| %>
-        <%= link_to photo_path(photo.id) do %>
-          <%= image_tag photo.photo, size: "300x300" %>
+<div class="bg-dark">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-10 col-md-10 mx-auto my-5">
+        <h3 class="my-3 text-light mx-auto">Masterpeaces</h3>
+        <% @photos.each do |photo| %>
+          <%= link_to photo_path(photo.id) do %>
+            <%= image_tag photo.photo, size: "280x280", class:"mt-3 ml-2"  %>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>

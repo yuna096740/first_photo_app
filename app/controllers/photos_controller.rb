@@ -25,7 +25,7 @@ class PhotosController < ApplicationController
 
   def update
     photo = Photo.find(params[:id])
-    photo..update(photo_params)
+    photo.update(photo_params)
     redirect_to photos_path
   end
 
