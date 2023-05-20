@@ -1,2 +1,13 @@
-<h1>Photos#show</h1>
-<p>Find me in app/views/photos/show.html.erb</p>
+<div class="bg-secondary">
+  <div class="container text-light">
+    <div class="row">
+      <div class="col-sm-12 col-md-10 col-lg-7 mx-auto">
+        <%= image_tag @photo.photo, size:"600x600" %><br>
+        <%= @photo.photo_name %>
+        <%= @photo.caption %>
+        <%= link_to "Edit", edit_photo_path(@photo.id), class:"btn btn-success" %> |
+        <%= link_to "destroy", photo_path(@photo.id), method: :delete, class:"btn btn-danger" %>
+      </div>
+    </div>
+  </div>
+</div>
