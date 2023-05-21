@@ -8,7 +8,6 @@ class ApplicationController < ActionController::Base
     about_path
   end
 
-
   protected
 
   def configure_permitted_parameters

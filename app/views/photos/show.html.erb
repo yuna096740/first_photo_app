@@ -6,7 +6,21 @@
         <%= @photo.photo_name %>
         <%= @photo.caption %>
         <%= link_to "Edit", edit_photo_path(@photo.id), class:"btn btn-outline-success mr-2 mt-5" %>
-        <%= link_to "destroy", photo_path(@photo.id), method: :delete, class:"btn btn-outline-danger mt-5" %>
+        <%= link_to "destroy", photo_path(@photo.id), method: :delete, class:"btn btn-outline-danger mt-5", data: { confirm: "Are you sure?" } %>
+      </div>
+      <div class="col-sm-12 col-md-10 col-lg-8 mx-auto mb-5">
+        <div class="my-3">
+          <%= @photo.photo_comments.each do |photo_comment| %>
+            <%= photo_comment.user.name %>
+            <%= photo_comment.created_at.strftime('%Y/%m/%d') %><br><%= photo_comment.comment %><br>
+          <% end %>
+        </div>
+        <div class="form-group">
+          <%= form_with model:[@photo,@photo_comment] do |f| %>
+            <%= f.text_area :comment ,row: '3', placeholder:"Add comments here", class:"form-control mb-5" %>
+            <%= f.submit class:"btn btn-outline-success form-control" %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
