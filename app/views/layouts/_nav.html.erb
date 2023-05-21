@@ -13,6 +13,11 @@
             <% end %>
           </li>
           <li>
+            <%= link_to user_path(current_user.id), class:"nav-link text-light" do %>
+              <i class="fab fa-monero"></i> Profile
+            <% end %>
+          </li>
+          <li>
             <%= link_to photos_path, class:"nav-link text-light" do %>
               <i class="fas fa-images"></i> Photos
             <% end %>
@@ -23,12 +28,7 @@
             <% end %>
           </li>
           <li>
-            <%= link_to about_path, class:"nav-link text-light" do |f| %>
-              <i class="fas fa-link"></i> About
-            <% end %>
-          </li>
-          <li>
-            <%= link_to destroy_user_session_path,method: :delete, class:"nav-link text-light"  do |f| %>
+            <%= link_to destroy_user_session_path, method: :delete, class:"nav-link text-light" do %>
               <i class="fas fa-sign-out-alt"></i> Log out
             <% end %>
           </li>

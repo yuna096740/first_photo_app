@@ -1,2 +1,18 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="bg-dark">
+  <div class="container">
+    <div class="row">
+      <div class="mx-auto text-light text-center">
+        <div class="col-md-8 m-5 ">
+          <%= image_tag @user.icon, size: '400x400', class:"rounded-circle my-3" %><br>
+          <div class="my-2">
+            <%= @user.name %><br>
+          </div>
+          <div class="mb-4">
+            <%= @user.introduction %>
+          </div>
+            <%= link_to 'Edit',edit_user_path(@user.id), class:"btn btn-outline-success form-control" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
