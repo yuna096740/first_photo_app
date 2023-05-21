@@ -2,25 +2,66 @@
   <div class="container text-light">
     <div class="row">
       <div class="col-sm-12 col-md-10 col-lg-10 mx-auto my-5">
-        <%= image_tag @photo.photo %><br>
-        <%= @photo.photo_name %>
-        <%= @photo.caption %>
-        <%= link_to "Edit", edit_photo_path(@photo.id), class:"btn btn-outline-success mr-2 mt-5" %>
-        <%= link_to "destroy", photo_path(@photo.id), method: :delete, class:"btn btn-outline-danger mt-5", data: { confirm: "Are you sure?" } %>
+        <%= image_tag @photo.photo, size: '920x750' %><br>
+          <table class="table text-light my-5">
+            <tr>
+              <th></th>
+              <th>Title</th>
+              <th>Caption</th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+            <tr>
+              <td></td>
+              <td><%= @photo.photo_name %></td>
+              <td><%= @photo.caption %></td>
+              <td>
+                <%= render 'favorites/favorite', photo: @photo %>
+              </td>
+              <td>
+                <%= link_to "Edit", edit_photo_path(@photo.id), class:"btn btn-outline-success" %>
+              </td>
+              <td>
+                <%= link_to "destroy", photo_path(@photo.id), method: :delete, class:"btn btn-outline-danger", data: { confirm: "Are you sure?" } %>
+              </td>
+            </tr>
+          </table>
       </div>
-      <div class="col-sm-12 col-md-10 col-lg-8 mx-auto mb-5">
-        <div class="my-3">
-          <%= @photo.photo_comments.each do |photo_comment| %>
-            <%= photo_comment.user.name %>
-            <%= photo_comment.created_at.strftime('%Y/%m/%d') %><br><%= photo_comment.comment %><br>
+      <div class="col-sm-12 col-md-10 col-lg-10 mx-auto mb-5">
+        <table class="table text-light mb-5">
+          <tr>
+            <th></th>
+            <th>Comment</th>
+            <th>User Name</th>
+            <th>Date</th>
+            <th></th>
+          </tr>
+          <% @photo.photo_comments.each do |photo_comment| %>
+            <tr>
+              <td></td>
+              <td><%= photo_comment.comment %></td>
+              <td><%= photo_comment.user.name %></td>
+              <td><%= photo_comment.created_at.strftime('%Y/%m/%d') %></td>
+              <td>
+                <% if photo_comment.user == current_user %>
+                <%= link_to "destroy", photo_photo_comment_path(photo_comment.photo, photo_comment), method: :delete, class:"btn btn-outline-danger" %>
+              <% end %>
+              </td>
+            </tr>
           <% end %>
-        </div>
-        <div class="form-group">
           <%= form_with model:[@photo,@photo_comment] do |f| %>
-            <%= f.text_area :comment ,row: '3', placeholder:"Add comments here", class:"form-control mb-5" %>
-            <%= f.submit class:"btn btn-outline-success form-control" %>
+            <tr>
+              <td></td>
+              <td colspan="3"><%= f.text_area :comment ,row: '5', placeholder:"Add comments here", class:"form-control my-1" %></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td colspan="3"><%= f.submit class:"btn btn-outline-success form-control mt-2" %></td>
+            </tr>
           <% end %>
-        </div>
+        </table>
       </div>
     </div>
   </div>
