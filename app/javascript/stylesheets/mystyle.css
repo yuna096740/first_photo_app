@@ -1,4 +1,23 @@
 .parallax {
-  background-image:url('assets/images/minami.jpg');
-  color:red;
+  background-image:url('../../assets/images/minami2.jpg');
+  background-size:cover;
+  background-position: center;
+  background-attachment: fixed;
+  height:800px;
+  width:100%;
+  color:white;
+}
+.box {
+  margin:0 auto;
+  width:100%;
+}
+.main-group {
+  padding:300px 0;
+  text-align: center;
+}
+.main-title{
+  font-size:64px;
+}
+.main-text{
+  font-size:20px;
 }

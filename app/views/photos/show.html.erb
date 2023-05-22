@@ -20,14 +20,16 @@
               <td>
                 <%= render 'favorites/favorite', photo: @photo %>
               </td>
+              <% if @user == current_user %>
+                <td>
+                  <%= link_to "Edit", edit_photo_path(@photo.id), class:"btn btn-outline-success" %>
+                </td>
+                <td>
+                  <%= link_to "destroy", photo_path(@photo.id), method: :delete, class:"btn btn-outline-danger", data: { confirm: "Are you sure?" } %>
+                </td>
+              <% end %>
               <td>
                 <%= render 'relationships/follow_btn', user: current_user %>
-              </td>
-              <td>
-                <%= link_to "Edit", edit_photo_path(@photo.id), class:"btn btn-outline-success" %>
-              </td>
-              <td>
-                <%= link_to "destroy", photo_path(@photo.id), method: :delete, class:"btn btn-outline-danger", data: { confirm: "Are you sure?" } %>
               </td>
             </tr>
           </table>

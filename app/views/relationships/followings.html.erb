@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <% if @users.exists? %>
+        <% @users.each do |user| %>
+          <table class="table">
+            <tr>
+              <th></th>
+              <th>Name</th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+            <tr>
+              <td></td>
+              <td><%= user.name %></td>
+              <td></td>
+              <td>Follower: <%= user.followers.count %></td>
+              <td></td>
+            </tr>
+          </table>
+        <% end %>
+      <% else %>
+       <p>You don't have any Followers...</p>
+      <% end %>
+    </div>
+  </div>
+</div>

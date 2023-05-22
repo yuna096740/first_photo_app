@@ -10,7 +10,13 @@
           <div class="mb-4">
             <%= @user.introduction %>
           </div>
+          Follower: <%= User.first.followings.count %>
+          <% if @user == current_user %>
             <%= link_to 'Edit',edit_user_path(@user.id), class:"btn btn-outline-success form-control" %>
+            <%= link_to 'Follower', user_followings_path(@user.id), class:"form-control btn btn-outline-info mt-2" %>
+          <% else %>
+            <%= render 'relationships/follow_btn', user: current_user %>
+          <% end %>
         </div>
       </div>
     </div>
