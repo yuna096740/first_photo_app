@@ -17,9 +17,10 @@
               <td></td>
               <td><%= @photo.photo_name %></td>
               <td><%= @photo.caption %></td>
-              <td>
-                <%= render 'favorites/favorite', photo: @photo %>
-              </td>
+              <% if user_signed_in? %>
+                <td class="favorite_buttons_<%= @photo.id %>">
+                  <%= render 'favorites/favorite', photo: @photo %>
+                </td>
               <% if @user == current_user %>
                 <td>
                   <%= link_to "Edit", edit_photo_path(@photo.id), class:"btn btn-outline-success" %>
@@ -28,9 +29,10 @@
                   <%= link_to "destroy", photo_path(@photo.id), method: :delete, class:"btn btn-outline-danger", data: { confirm: "Are you sure?" } %>
                 </td>
               <% end %>
-              <td>
-                <%= render 'relationships/follow_btn', user: current_user %>
-              </td>
+                <td>
+                  <%= render 'relationships/follow_btn', user: current_user %>
+                </td>
+              <% end %>
             </tr>
           </table>
       </div>
@@ -56,16 +58,18 @@
               </td>
             </tr>
           <% end %>
-          <%= form_with model:[@photo,@photo_comment] do |f| %>
-            <tr>
-              <td></td>
-              <td colspan="3"><%= f.text_area :comment ,row: '5', placeholder:"Add comments here", class:"form-control my-1" %></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td colspan="3"><%= f.submit class:"btn btn-outline-success form-control mt-2" %></td>
-            </tr>
+          <% if user_signed_in? %>
+            <%= form_with model:[@photo,@photo_comment] do |f| %>
+              <tr>
+                <td></td>
+                <td colspan="3"><%= f.text_area :comment ,row: '5', placeholder:"Add comments here", class:"form-control my-1" %></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td colspan="3"><%= f.submit class:"btn btn-outline-success form-control mt-2" %></td>
+              </tr>
+            <% end %>
           <% end %>
         </table>
       </div>

@@ -1,9 +1,9 @@
 <% if photo.favorited_by?(current_user) %>
-  <%= link_to photo_favorites_path(photo), class:"text-danger", method: :delete do %>
+  <%= link_to photo_favorites_path(photo), class:"text-danger", method: :delete, remote: true do %>
     <i class="fas fa-heart"></i> <%= photo.favorites.count %>
   <% end %>
 <% else %>
-  <%= link_to photo_favorites_path(photo), class:"text-primary", method: :post do %>
+  <%= link_to photo_favorites_path(photo), class:"text-primary", method: :post, remote: true do %>
     <i class="fas fa-heart"></i> <%= photo.favorites.count %>
   <% end %>
 <% end %>
