@@ -1,56 +1,61 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand mt-5" href="/"><b>TheFirstAppForMyMam</b></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controlls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ml-auto">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ml-auto mt-5">
         <% if user_signed_in? %>
           <li>
-            <%= link_to root_path, class: 'nav-link text-light' do %>
-              <i class="fas fa-home"></i> Home
+            <%= link_to root_path, class: 'nav-link text-light mr-4' do %>
+              <i class="fas fa-home"></i> HOME
             <% end %>
           </li>
           <li>
-            <%= link_to user_path(current_user.id), class:"nav-link text-light" do %>
-              <i class="fab fa-monero"></i> Profile
+            <%= link_to about_path, class:"nav-link text-light mr-4" do %>
+              <i class="fas fa-link"></i> ABOUT
             <% end %>
           </li>
           <li>
-            <%= link_to photos_path, class:"nav-link text-light" do %>
-              <i class="fas fa-images"></i> Photos
+            <%= link_to user_path(current_user.id), class:"nav-link text-light mr-4" do %>
+              <i class="fab fa-monero"></i> PROFILE
             <% end %>
           </li>
           <li>
-            <%= link_to new_photo_path, class:"nav-link text-light" do %>
-              <i class="fas fa-plus"></i> Create
+            <%= link_to photos_path, class:"nav-link text-light mr-4" do %>
+              <i class="fas fa-images"></i> PHOTOGRAPHS
             <% end %>
           </li>
           <li>
-            <%= link_to destroy_user_session_path, method: :delete, class:"nav-link text-light" do %>
-              <i class="fas fa-sign-out-alt"></i> Log out
+            <%= link_to new_photo_path, class:"nav-link text-light mr-4" do %>
+              <i class="fas fa-plus"></i> CREATE
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete, class:"nav-link text-light mr-4" do %>
+              <i class="fas fa-sign-out-alt"></i> LOG OUT
             <% end %>
           </li>
         <% else %>
           <li>
-            <%= link_to root_path, class: 'nav-link text-light' do %>
-              <i class="fas fa-home"></i> Home
+            <%= link_to root_path, class: 'nav-link text-light mr-4' do %>
+              <i class="fas fa-home"></i> HOME
             <% end %>
           </li>
           <li>
-            <%= link_to about_path, class:"nav-link text-light" do |f| %>
-              <i class="fas fa-link"></i> About
+            <%= link_to about_path, class:"nav-link text-light mr-4" do %>
+              <i class="fas fa-link"></i> ABOUT
             <% end %>
           </li>
           <li>
-            <%= link_to new_user_session_path, class:"nav-link text-light" do |f| %>
-              <i class="fas fa-user"></i> Log in
+            <%= link_to new_user_session_path, class:"nav-link text-light mr-4" do %>
+              <i class="fas fa-user"></i> LOG IN
             <% end %>
           </li>
           <li>
-            <%= link_to new_user_registration_path, class:"nav-link text-light"  do |f| %>
-              <i class="fas fa-users"></i> Sign up
+            <%= link_to new_user_registration_path, class:"nav-link text-light mr-4"  do %>
+              <i class="fas fa-users"></i> SIGN UP
             <% end %>
           </li>
         <% end %>
