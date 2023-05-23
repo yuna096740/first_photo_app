@@ -1,25 +1,27 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <% if @user.exists? %>
-        <% @user.each do |user| %>
-          <table class="table">
-            <tr>
-              <th></th>
-              <th>Name</th>
-              <th></th>
-              <th></th>
-              <th></th>
-            </tr>
-            <tr>
-              <td></td>
-              <td><%= user.name %></td>
-              <td>Follow: <%= user.followings.count %></td>
-              <td>Follower: <%= user.followers.count %></td>
-              <td></td>
-            </tr>
-          </table>
-        <% end %>
+      <table class="table">
+        <% if @users.exists? %>
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th></th>
+          <th>Made an acount</th>
+          <th></th>
+        </tr>
+
+        <% @users.each do |user| %>
+          <tr>
+            <td></td>
+            <td><%= user.name %></td>
+            <td>Follow: <%= user.followings.count %></td>
+            <td>Date: <%= user.created_at.strftime('%Y/%m/%d') %></td>
+            <td></td>
+          </tr>
+          <% end %>
+        </table>
+
       <% else %>
        <p>You don't have any Followers...</p>
       <% end %>
